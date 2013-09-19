@@ -3,6 +3,7 @@
  */
 package example.nl.demo.service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -28,7 +29,7 @@ public class HelloCustomerController {
         Customer customer = customerService.getCustomer(customerRequest);
         String message = "hello";
 
-                //messageService.getCustomMessage(customer);
+        //messageService.getCustomMessage(customer);
         return message;
     }
 
@@ -52,9 +53,7 @@ public class HelloCustomerController {
         this.customerService = customerService;
     }
 
-    public MessageService getMessageService() {
-        return messageService;
-    }
+
 
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
@@ -62,7 +61,11 @@ public class HelloCustomerController {
 
 
     public String convertToString(Date date) {
-        //String dateStr=
-         return "";
+
+        SimpleDateFormat ft =
+                new SimpleDateFormat("yyyy.MM.dd");
+
+        return ft.format(date);
+
     }
 }

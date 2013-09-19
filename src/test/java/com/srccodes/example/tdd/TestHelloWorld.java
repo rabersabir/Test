@@ -7,6 +7,9 @@ import org.junit.Before;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
@@ -64,4 +67,32 @@ public class TestHelloWorld {
         assertEquals("hello", messageActual) ;
     }
 
+
+    @Test
+    public void  getBirthDate(){
+        String messageExpected;
+        ArgumentCaptor<CustomerRequest> customerRequest = ArgumentCaptor.forClass(CustomerRequest.class);
+
+        Customer customer=new Customer();
+        customer.setBirthdate(new Date());
+        when(mockCustomerService.getCustomer(customerRequest.capture())).thenReturn(customer)             ;
+        String birthDate =helloWorld.getBirthdate(new Session(1234))      ;
+
+        CustomerRequest capturedCustomer = customerRequest.getValue();
+
+        assertEquals(1234, capturedCustomer.getCustomerId().intValue());
+
+        String formatedDate=convertToString(customer.getBirthdate()) ;
+        assertEquals(formatedDate, birthDate) ;
+    }
+
+
+    public String convertToString(Date date) {
+
+        SimpleDateFormat ft =
+                new SimpleDateFormat("yyyy.MM.dd");
+
+        return ft.format(date);
+
+    }
 }
