@@ -1,4 +1,4 @@
-package com.srccodes.example.spring;
+package example.nl.demo.service;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,8 +9,13 @@ package com.srccodes.example.spring;
  */
 public class Session {
 
+                        private  Integer customerId;
     public Integer getCustomerId(){
 
-        return 1;
+        return customerId;
+    }
+
+    public  Session (Integer customerId){
+        this.customerId=customerId;
     }
 }

@@ -1,4 +1,4 @@
-package com.srccodes.example.spring;
+package com.srccodes.example.tdd;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

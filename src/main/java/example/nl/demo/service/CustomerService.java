@@ -1,7 +1,5 @@
 package example.nl.demo.service;
 
-import com.srccodes.example.spring.Customer;
-
 /**
  * Created with IntelliJ IDEA.
  * User: zuzana
@@ -12,6 +10,6 @@ import com.srccodes.example.spring.Customer;
 public interface CustomerService {
 
 
-    Customer getCustomerById(Integer id);
+    Customer getCustomer(CustomerRequest id);
 
 }

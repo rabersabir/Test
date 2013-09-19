@@ -1,7 +1,5 @@
 package example.nl.demo.service;
 
-import com.srccodes.example.spring.Customer;
-
 /**
  * Created with IntelliJ IDEA.
  * User: zuzana
